@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="first" class="com.test.autowiring.FirstClass" />
+
+	<!-- Instead of using <ref> tag to insert other bean we can use autowire 
+		autowire reduces the source code -->
+
+	<!-- <bean id="secondclass_ID" class="com.test.autowiring.SecondClass" autowire="byName" 
+		/> -->
+	<!-- byName == the bean id of first class must be same as second class property 
+		name -->
+
+	<!-- byName used globally to all bean objects 
+		<beans default-autowire="byName"> 
+		<bean id="secondclass_ID1" class="SecondClass" /> 
+		<bean id="secondclass_ID2" class="SecondClass" /> 
+		<bean id="secondclass_ID3" class="SecondClass" autowire="byType"  />    using byType here
+		</beans> --> 
+
+
+	<!-- <bean id="secondclass_ID" class="com.test.autowiring.SecondClass" autowire="byType" 
+		/> -->
+	<!-- byType == the classname must be available in second class as property 
+		type -->
+	<!-- Drawback of byType: 1. if there are many bean objects created with 
+		same class, then there is ambiguity to the spring container so we use byName 
+		because bean id is unique -->
+
+
+	<bean id="secondclass_ID" class="com.test.autowiring.SecondClass"
+		autowire="constructor" />
+	<!-- constructor == it checks for constructor in second class for injection -->
+
+	<!-- <bean id="secondclass_ID" class="com.test.autowiring.SecondClass" autowire="autodetect" 
+		/> -->
+	<!-- autodetect == checks for constructor in second class if it is not available 
+		then it checks for setter injection. autodetect works in spring 2.5 or below -->
+
+</beans>
