@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+<!-- Singleton == For all multiple requests only single object will be created -->
+<!-- Prototype == For all multiple requests, every time a new object will be created  -->
+
+	<bean id="objectbeanID" class="com.abc.list.ObjectBean" scope="prototype">
+		
+	</bean>
+	
+</beans>
