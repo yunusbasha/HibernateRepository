@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="studentID" class="com.abc.first.Student">
+		<property name="address">
+			<ref bean="addressID" />				<!-- ref tag is more convenient -->
+			
+			<!-- local == checks for bean only inside this configuration file  "MOSTLY USED"
+					parent == checks for bean in other configuration files inside the package
+					bean == checks for bean in local and then package level	 -->
+					
+			<!-- Best among this depends upon the requirement -->
+		</property>
+	</bean>
+
+	<bean id="addressID" class="com.abc.first.Address">
+		<property name="city" value="New Chennai"></property>
+
+	</bean>
+</beans>
