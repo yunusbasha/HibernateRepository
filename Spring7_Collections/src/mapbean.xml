@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="mapbeanID" class="com.abc.map.MapBean">
+		<property name="map">
+			<map>							<!-- map contains (KEY + VALUE) pair = ENTRY -->
+				<!-- Entry interface inside Map interface -->
+				<!-- To identify inner class we use javac outerclassname$innerclassname.class -->
+				<entry key="101">
+					<value>Yunus</value>
+				</entry>
+				<entry key="102">
+					<value>Irshad</value>
+				</entry>
+				<entry key="103">
+					<ref bean="objectmapbeanID"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="objectmapbeanID" class="com.abc.map.ObjectMapbean">
+		<property name="name" value="Object Yunus" />
+		<property name="city" value="Chicago" />
+	</bean>
+</beans>

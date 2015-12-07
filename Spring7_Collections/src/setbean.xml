@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="setbeanID" class="com.abc.set.SetBean">
+		<property name="set">
+				<set>
+				<value>Yunus</value>
+				<value>Irshad</value>
+				<value>Yunus</value>			<!-- SET does not allow duplicate values -->
+				<value> </value>			<!--  SET allow null values -->
+				<ref bean="objectsetbeanID" />
+				</set>
+		</property>
+	</bean>
+	
+	<bean id="objectsetbeanID" class="com.abc.set.ObjectSetbean">
+		<property name="name" value="New Yunus" />
+		<property name="city" value="Chicago"/>
+	</bean>
+</beans>
