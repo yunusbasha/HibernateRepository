@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Dependency validations: 4 types 
+			1. none (default) 
+			2. simple == checks for primitives (int, float, double...) and collections 
+			3. objects == checks for objects (String)
+			4. all == checks all primitives + collections + objects -->
+
+	<bean id="firstclass_ID" class="com.test.dependencycheck.FirstClass" dependency-check="simple">
+		<property name="name">
+			<value>Yunus</value>
+		</property>
+	</bean>
+	<!-- if there is no value passed it checks and displays UnsatisfiedDependencyException -->
+	
+	<!-- To avoid null pointer exception we use dependency-check="objects" -->
+	<bean id="secondclass_ID" class="com.test.dependencycheck.SecondClass" dependency-check="objects">
+		<property name="firstclass">
+			<ref bean="firstclass_ID"/>
+		</property>
+	</bean>
+	<!-- if there is no value passed, then it checks and shows a null pointer exception -->
+	
+</beans>
