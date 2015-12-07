@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+<bean id="class2_ID" class="com.test.instance.class2"></bean>
+
+<bean id="class1_ID" class="com.test.instance.class1" factory-method="getInstance" factory-bean="class2_ID" />
+<!-- factory-bean: declare the bean in which the object is created or declared-->
+</beans>
