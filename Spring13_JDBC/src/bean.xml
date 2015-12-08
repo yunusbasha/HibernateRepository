@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- beans == root tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    
+<!-- ORM == Hibernate, iBatis (2 mins to learn if you learn Hibernate), TopLink etc 
+
+In order to support old projects then we use Spring JDBC.
+
+In latest project we use Spring ORM == connection between Spring and hibernate
+
+Connection Pooling: a pool of connection objects we use in JAVA program. we can get that connection object 
+using DataSource object. 
+
+we can get DataSource object in 2 classes :
+				1. DriverManagerDataSource			(developed by Spring)
+				2. BasicDataSource				(developed by third party vendor or Apache)
+				
+"public class BasicDataSource implements DataSource(Interface)" -->
+
+	<bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/springdb" />
+		<property name="username" value="root" />
+		<property name="password" value="password" />
+	</bean>
+
+	<bean id="JDBCtemplateID" class="org.springframework.jdbc.core.JdbcTemplate">			<!-- Predefined class -->
+		<constructor-arg>
+			<ref bean="datasource" />				<!-- passing the datasource object -->
+		</constructor-arg>
+	</bean>
+
+	<bean id="studentservice_ID" class="com.test.springjdbc.StudentService">
+		<property name="jdbctemp">
+			<ref bean="JDBCtemplateID" />
+		</property>
+	</bean>
+</beans>
