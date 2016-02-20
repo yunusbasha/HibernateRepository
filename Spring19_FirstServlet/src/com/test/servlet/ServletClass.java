@@ -11,7 +11,7 @@ public class ServletClass extends HttpServlet{
 	/*  From web.xml it execute all methods of the class*/
 	public ServletClass()
 	{
-		  System.out.println("Constructor creates an object......");
+		   System.out.println("Constructor creates an object......");
 	}
 	 
 	public void init()
