@@ -8,7 +8,7 @@ import org.springframework.web.servlet.mvc.Controller;
 public class ControllerClass implements Controller
 {
 
-	//  Controller Interface contains only one method "handleRequest"
+	// Controller Interface contains only one method "handleRequest"
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("Controller class has started....");
