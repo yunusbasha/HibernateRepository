@@ -13,7 +13,7 @@ public class ServletClass extends HttpServlet{
 	{
 		System.out.println("Constructor creates an object......");
 	}
-	
+	 
 	public void init()
 	{
 		System.out.println("init() method is called......");
